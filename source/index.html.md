@@ -370,6 +370,7 @@ curl --location --request POST 'https://api-dev.in.springverify.com/v1/candidate
             "relative_phone_number": "",
             "other_phone_number": "+91",
             "doc_type": "Passport",
+            preferred_verification_method: "Physical",
             "other_doc": "",
             "front_doc_url":  "<image_url>",
             "back_doc_url":  "<image_url>",
@@ -1062,6 +1063,7 @@ curl --location --request POST 'https://api-dev.in.springverify.com/v1/documents
     "zipcode": "560095",
     "country": "India",
     "length_of_stay": "10 years",
+    "preferred_verification_method: "Physical",
     "city": "Bengaluru",
     "state": "Karnataka",
     "is_candidate_available": true,
@@ -1170,6 +1172,16 @@ Address Type can be:
 
 1. Own / Parents
 2. Rented
+
+<b>Preferred Verification Method</b>
+
+The key preferred_verification_method can be used (optional) to indicate what method of verification is preferred. Values are:
+
+1. PHYSICAL
+2. POSTAL
+3. DIGITAL
+
+If not provided, we will decide on the verification method.
 
 <aside class="notice">
   Company/Candidate can leverage is_candidate_available to set availability of the candidate at home between <b>9am - 5pm</b>
