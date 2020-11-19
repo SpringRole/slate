@@ -430,7 +430,7 @@ curl --location --request POST 'https://api-dev.in.springverify.com/v1/candidate
         }
     },
     "consent": {
-        "docUrl": "www.google.com"
+        "doc_url": "www.google.com"
     },
     "send_candidate_consent_email": false
 }'
