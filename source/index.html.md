@@ -1,22 +1,17 @@
 ---
+
 title: API Reference
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
-  - java
+language_tabs: # must be one of https://git.io/vQNgJ - shell - ruby - python - javascript - java
 
-toc_footers:
-  - <a href='mailto:info@springverify.com'>Email us for access</a>
+toc_footers: - <a href='mailto:info@springverify.com'>Email us for access</a>
 
-includes:
-  - errors
+includes: - errors
 
 search: true
 
 code_clipboard: true
+
 ---
 
 # Introduction
@@ -25,9 +20,9 @@ Welcome to SpringVerify India API Documentation. The endpoints exposed in this d
 
 The SpringVerify India API is organized around REST. Our API has predictable resource-oriented URLs, accepts form request JSON bodies, returns JSON responses, and uses standard HTTP response codes, authentication, and verbs.
 
-<aside class="notice">
-Note This documentation is intended for developers only.
-</aside>
+  <aside class="notice">
+  Note This documentation is intended for developers only.
+  </aside>
 
 ## Environment Urls
 
@@ -45,9 +40,9 @@ https://api.in.springverify.com
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/87c12d8a47528cde952c)
 
-<aside class="notice">
-  Please contact SpringVerify Team (info@springverify.com) to register your company. Currently there is no sign up for security reasons.
-</aside>
+  <aside class="notice">
+    Please contact SpringVerify Team (info@springverify.com) to register your company. Currently there is no sign up for security reasons.
+  </aside>
 
 # Login
 
@@ -136,56 +131,56 @@ Response response = client.newCall(request).execute();
 
 This API is used to login into the platform. We use Json Web Token for authentication. Please refer [here](https://jwt.io/introduction/) to know more about Json Web Token. It is used as Bearer Token in all the API's appart from login API.
 
-<aside class="notice">
-Use the JWT token in response as Authorization for all the APIs
-</aside>
+  <aside class="notice">
+  Use the JWT token in response as Authorization for all the APIs
+  </aside>
 
 Use the credentials provided to your company and the Auth Token for generating JWT token
 
-<aside class="success">
-Validity - of the token is 7 days, after which new one needs to be generated
-</aside>
+  <aside class="success">
+  Validity - of the token is 7 days, after which new one needs to be generated
+  </aside>
 
 # Add Candidates
 
 ```shell
 curl --location --request POST 'https://api-dev.in.springverify.com/v1/candidate' \
-		--header 'Content-Type: application/json' \
-		--header 'Authorization: Bearer <Token>' \
-		--data-raw '{
-		    "name": "Anurag Sandhu",
-		    "email": "anurag.sandhu@springrole.com",
-		    "consentUrl" : <consent_url>,
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer <Token>' \
+    --data-raw '{
+        "name": "Anurag Sandhu",
+        "email": "anurag.sandhu@springrole.com",
+        "consentUrl" : <consent_url>,
         "uan_number": "XXXXX",
         "phone" : "+91XXXXX",
         "employeeId": "xxx",
-		    "verifications": {
-		        "identity": {
-		            "pan": true,
-		            "drivingLicense": true,
-		            "passport": true,
-		            "voterId": true
-		        },
-		        "address": {
-		            "current": false,
-		            "permanent": false
-		        },
-		        "education": {
-		            "10": true,
-		            "12": true,
-		            "bachelor": false,
-		            "masters": true,
-		            "doctorate": true
-		        },
-		        "workExperience": {
-		            "employments": 1
-		        },
-		        "criminalRecord": {
-		            "current": false,
-		            "permanent": false
-		        }
-		    }
-		}'
+        "verifications": {
+            "identity": {
+                "pan": true,
+                "drivingLicense": true,
+                "passport": true,
+                "voterId": true
+            },
+            "address": {
+                "current": false,
+                "permanent": false
+            },
+            "education": {
+                "10": true,
+                "12": true,
+                "bachelor": false,
+                "masters": true,
+                "doctorate": true
+            },
+            "workExperience": {
+                "employments": 1
+            },
+            "criminalRecord": {
+                "current": false,
+                "permanent": false
+            }
+        }
+    }'
 ```
 
 ```java
@@ -284,9 +279,9 @@ Post API to gather candidate's basic details and configuration. The configuratio
 
 The configuration sent in this api will be validated against enteries in following APIs. For example, if Pan is True, we expect candidate's PAN card in identity verification API.
 
-<aside class="notice">
-Use the uuid and token returned in the preceding APIs.
-</aside>
+  <aside class="notice">
+  Use the uuid and token returned in the preceding APIs.
+  </aside>
 
 # Add Candidate Details
 
@@ -632,9 +627,9 @@ POST API to provide all the relevant information of the candidate for verificati
 
 Alternatively, you can use [Get Background Verification URL](https://docs-bgv.springverify.com/#get-background-verification-url) to generate a form URL for the candidate.
 
-<aside type="notice">
-Auth Token of company login is needed in headers
-</aside>
+  <aside type="notice">
+  Auth Token of company login is needed in headers
+  </aside>
 
 Mandatory fields:
 
@@ -649,14 +644,14 @@ all other fields are non-mandatory. Its advisable to send as much information as
 - For types of <b>ID</b> fields click [here](https://docs-bgv.springverify.com/#identity-verification)
 - For types of <b>Address</b> fields click [here](https://docs-bgv.springverify.com/#add-address)
 
-<aside type="success">
-<b>send_candidate_consent_email</b> field is used to send e-mail to candidate for consent on background verification, in case a consent url is not provided
-while adding the candidate or in consent.doc_url. You should send send_candidate_consent_email as TRUE in such scenario.
-</aside>
+  <aside type="success">
+  <b>send_candidate_consent_email</b> field is used to send e-mail to candidate for consent on background verification, in case a consent url is not provided
+  while adding the candidate or in consent.doc_url. You should send send_candidate_consent_email as TRUE in such scenario.
+  </aside>
 
-<aside type="notice">
-Please make sure to send at-least the doc URLs for a successful verification process
-</aside>
+  <aside type="notice">
+  Please make sure to send at-least the doc URLs for a successful verification process
+  </aside>
 
 # Get Background Verification URL
 
@@ -751,13 +746,13 @@ GET Background Verification (BGV) form's url. Candidate or HR can fill and submi
 
 We will do the verification and update statuses for the same via dashboard and email.
 
-<aside class="success">
-   Use the Company's (Login) token to generate BGV URL. 
-</aside>
+  <aside class="success">
+    Use the Company's (Login) token to generate BGV URL. 
+  </aside>
 
-<aside class="notice">
-  API is useful if you would like to generate a <b>UI form</b> on the fly, to be filled by HR or by the candidate.
-</aside>
+  <aside class="notice">
+    API is useful if you would like to generate a <b>UI form</b> on the fly, to be filled by HR or by the candidate.
+  </aside>
 
 # Identity Verification
 
@@ -861,9 +856,9 @@ puts response.read_body
 
 Please give the image url in this API. Use the token which was returned after add candidate API. If your image is in base64, we suggest you host it on your server.
 
-<aside class="success">
-  If you are unable to host the image securely, please contact us.
-</aside>
+  <aside class="success">
+    If you are unable to host the image securely, please contact us.
+  </aside>
 
 If you know the front and back, please send in front and back keys. If front and back are not known, please send in the docs as an array.
 
@@ -886,7 +881,7 @@ curl --location --request POST 'https://api-dev.in.springverify.com/v1/documents
     "employments" : [
         {
             "document_type": "ExperienceLetter",
-			"companyName": "ABC",
+      "companyName": "ABC",
             "designation": "1",
             "currentlyHere": "true",
             "startDate": "25/11/19",
@@ -1013,9 +1008,9 @@ puts response.read_body
 
 This API is used to add employment details and any relevant docs of the user. Please give the image url in this API.
 
-<aside class="notice">
-  Use the token returned from add candidate API.
-</aside>
+  <aside class="notice">
+    Use the token returned from add candidate API.
+  </aside>
 
 <b>Currently Supported Documents with keys</b>
 
@@ -1025,9 +1020,9 @@ This API is used to add employment details and any relevant docs of the user. Pl
 4. Appointment Letter (AppointmentLetter)
 5. Others - eg: no specific document (Other)
 
-<aside class="notice">
-  For verification purposes, at least the <b>employmentLinks</b> to document should be sent in the API.
-</aside>
+  <aside class="notice">
+    For verification purposes, at least the <b>employmentLinks</b> to document should be sent in the API.
+  </aside>
 
 # Add Education
 
@@ -1235,13 +1230,13 @@ puts response.read_body
 
 This API is used to add education details and any relevant docs of the candidate.
 
-<aside class="notice">
- Please give the image url in this API. Use the token which was returned after add candidate API.
-</aside>
+  <aside class="notice">
+  Please give the image url in this API. Use the token which was returned after add candidate API.
+  </aside>
 
-<aside class="warning">
-  API will reject upload of any docs that were not set True in config.
-</aside>
+  <aside class="warning">
+    API will reject upload of any docs that were not set True in config.
+  </aside>
 
 <b>Supported Documents with Keys</b>
 
@@ -1378,9 +1373,9 @@ puts response.read_body
 
 API to upload candidate's address information for verification.
 
-<aside class="notice">
-  For verification purposes, at least the <b>addressLinks</b> to document should be sent in the API.
-</aside>
+  <aside class="notice">
+    For verification purposes, at least the <b>addressLinks</b> to document should be sent in the API.
+  </aside>
 
 Point of contact type can be:
 
@@ -1406,9 +1401,9 @@ The key preferred_verification_method can be used (optional) to indicate what me
 
 If not provided, we will decide on the verification method.
 
-<aside class="notice">
-  Company/Candidate can leverage is_candidate_available to set availability of the candidate at home between <b>9am - 5pm</b>
-</aside>
+  <aside class="notice">
+    Company/Candidate can leverage is_candidate_available to set availability of the candidate at home between <b>9am - 5pm</b>
+  </aside>
 
 # Get Candidate
 
@@ -1494,9 +1489,9 @@ print(response.text.encode('utf8'))
 
 This API is used to get candidates in bulk. You can provide multiple candidates in array.
 
-<aside type="notice">
-  Use the token which was returned from add candidate API.
-</aside>
+  <aside type="notice">
+    Use the token which was returned from add candidate API.
+  </aside>
 
 > Example Response (with all possible fields)
 
@@ -2034,9 +2029,9 @@ puts response.read_body
 
 API to fetch all candidates uploaded by the Company, in a sorted fashion. Sorting is based on action taken on candidate
 
-<aside type="notice">
-limit and page are optional. If not provided, either, default values are limit 10 and page 0
-</aside>
+  <aside type="notice">
+  limit and page are optional. If not provided, either, default values are limit 10 and page 0
+  </aside>
 
 > Response looks like
 
@@ -2108,47 +2103,105 @@ limit and page are optional. If not provided, either, default values are limit 1
 ]
 ```
 
-<!-- # Kittens
+  <!-- # Kittens
 
-## Get All Kittens
+  ## Get All Kittens
 
-```ruby
-require 'kittn'
+  ```ruby
+  require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+  api = Kittn::APIClient.authorize!('meowmeowmeow')
+  api.kittens.get
+  ```
 
-```python
-import kittn
+  ```python
+  import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+  api = kittn.authorize('meowmeowmeow')
+  api.kittens.get()
+  ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
+  ```shell
+  curl "http://example.com/api/kittens"
+    -H "Authorization: meowmeowmeow"
+  ```
 
-```javascript
-const kittn = require('kittn');
+  ```javascript
+  const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
+  let api = kittn.authorize('meowmeowmeow');
+  let kittens = api.kittens.get();
+  ```
 
-> The above command returns JSON structured like this:
+  > The above command returns JSON structured like this:
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Fluffums",
+      "breed": "calico",
+      "fluffiness": 6,
+      "cuteness": 7
+    },
+    {
+      "id": 2,
+      "name": "Max",
+      "breed": "unknown",
+      "fluffiness": 5,
+      "cuteness": 10
+    }
+  ]
+  ```
+
+  This endpoint retrieves all kittens.
+
+  ### HTTP Request
+
+  `GET http://example.com/api/kittens`
+
+  ### Query Parameters
+
+  Parameter | Default | Description
+  --------- | ------- | -----------
+  include_cats | false | If set to true, the result will also include cats.
+  available | true | If set to false, the result will include kittens that have already been adopted.
+
+  <aside class="success">
+  Remember — a happy kitten is an authenticated kitten!
+  </aside>
+
+  ## Get a Specific Kitten
+
+  ```ruby
+  require 'kittn'
+
+  api = Kittn::APIClient.authorize!('meowmeowmeow')
+  api.kittens.get(2)
+  ```
+
+  ```python
+  import kittn
+
+  api = kittn.authorize('meowmeowmeow')
+  api.kittens.get(2)
+  ```
+
+  ```shell
+  curl "http://example.com/api/kittens/2"
+    -H "Authorization: meowmeowmeow"
+  ```
+
+  ```javascript
+  const kittn = require('kittn');
+
+  let api = kittn.authorize('meowmeowmeow');
+  let max = api.kittens.get(2);
+  ```
+
+  > The above command returns JSON structured like this:
+
+  ```json
   {
     "id": 2,
     "name": "Max",
@@ -2156,126 +2209,68 @@ let kittens = api.kittens.get();
     "fluffiness": 5,
     "cuteness": 10
   }
-]
-```
+  ```
 
-This endpoint retrieves all kittens.
+  This endpoint retrieves a specific kitten.
 
-### HTTP Request
+  <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
-`GET http://example.com/api/kittens`
+  ### HTTP Request
 
-### Query Parameters
+  `GET http://example.com/kittens/<ID>`
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+  ### URL Parameters
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+  Parameter | Description
+  --------- | -----------
+  ID | The ID of the kitten to retrieve
 
-## Get a Specific Kitten
+  ## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
+  ```ruby
+  require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+  api = Kittn::APIClient.authorize!('meowmeowmeow')
+  api.kittens.delete(2)
+  ```
 
-```python
-import kittn
+  ```python
+  import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+  api = kittn.authorize('meowmeowmeow')
+  api.kittens.delete(2)
+  ```
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+  ```shell
+  curl "http://example.com/api/kittens/2"
+    -X DELETE
+    -H "Authorization: meowmeowmeow"
+  ```
 
-```javascript
-const kittn = require('kittn');
+  ```javascript
+  const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
+  let api = kittn.authorize('meowmeowmeow');
+  let max = api.kittens.delete(2);
+  ```
 
-> The above command returns JSON structured like this:
+  > The above command returns JSON structured like this:
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+  ```json
+  {
+    "id": 2,
+    "deleted" : ":("
+  }
+  ```
 
-This endpoint retrieves a specific kitten.
+  This endpoint deletes a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+  ### HTTP Request
 
-### HTTP Request
+  `DELETE http://example.com/kittens/<ID>`
 
-`GET http://example.com/kittens/<ID>`
+  ### URL Parameters
 
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete -->
+  Parameter | Description
+  --------- | -----------
+  ID | The ID of the kitten to delete -->
