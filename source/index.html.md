@@ -1495,36 +1495,39 @@ This API is used to get candidates in bulk. You can provide multiple candidates 
 
 ### Status mapping for Candidate (overall) level Verification
 
-| Integer | Status                       |
-| ------- | ---------------------------- |
-| -2      | Completed with Discrepancy   |
-| -1      | Insufficiency                |
-| 0       | Ready to initiate            |
-| 1       | Completed (Verified)         |
-| 2       | Completed (Unable to Verify) |
-| 3       | Awaiting Input               |
-| 4       | In Progress                  |
-| 5       | On Hold                      |
-| 6       | Closed                       |
-| 7       | N/A                          |
-| 8       | Cancelled                    |
-| 9       | Processing                   |
-| 10      | In Progress                  |
+| Integer | Status             | API ENUM          |
+| ------- | ------------------ | ----------------- |
+| 0       | In Progress        | inProgress        |
+| 1       | Verified           | verified          |
+| 2       | Candidate Added    | candidateAdded    |
+| 3       | Awaiting Input     | awaitingInput     |
+| 4       | Processing         | processing        |
+| 5       | Discrepancy        | discrepancy       |
+| 6       | Unable To Verify   | unableToVerify    |
+| 7       | Insufficient info  | inSufficiency     |
+| 8       | Closed             | closed            |
+| 9       | On Hold            | onHold            |
+| 10      | Cancelled          | cancelled         |
+| 11      | Consent Missing    | consentMissing    |
+| 12      | Insufficient Funds | insufficientFunds |
 
 ### Status mapping for Check (id, employment etc) level Verification
 
-| Integer | Status                   |
-| ------- | ------------------------ |
-| 0       | In progress              |
-| 1       | Completed                |
-| 3       | Awaiting Input           |
-| 4       | Processing               |
-| 6       | Completed with exception |
-| 8       | Closed                   |
-| 9       | On Hold                  |
-| 10      | Cancelled                |
-| 11      | Consent missing          |
-| 12      | Insufficient funds       |
+| Integer | Status                     | API ENUM         |
+| ------- | -------------------------- | ---------------- |
+| -2      | Completed with Discrepancy | discrepancy      |
+| -1      | Insufficiency              | insufficiency    |
+| 0       | In progress                | processing       |
+| 1       | Completed                  | unable_to_verify |
+| 2       | Unable To Verify           | verified         |
+| 3       | Awaiting Input             | awaiting_input   |
+| 4       | In Progress                | in_progress      |
+| 5       | On Hold                    | on_hold          |
+| 6       | Closed                     | closed           |
+| 6       | Not Applicable             | not_applicable   |
+| 8       | Cancelled                  | cancelled        |
+| 9       | Form submitted             | form_submitted   |
+| 10      | Verified Auto              | verified_auto    |
 
 > Example Response (with all possible fields)
 
