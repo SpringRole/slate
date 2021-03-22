@@ -1493,6 +1493,39 @@ This API is used to get candidates in bulk. You can provide multiple candidates 
     Use the token which was returned from add candidate API.
   </aside>
 
+### Status mapping for Candidate (overall) level Verification
+
+| Integer | Status                       |
+| ------- | ---------------------------- |
+| -2      | Completed with Discrepancy   |
+| -1      | Insufficiency                |
+| 0       | Ready to initiate            |
+| 1       | Completed (Verified)         |
+| 2       | Completed (Unable to Verify) |
+| 3       | Awaiting Input               |
+| 4       | In Progress                  |
+| 5       | On Hold                      |
+| 6       | Closed                       |
+| 7       | N/A                          |
+| 8       | Cancelled                    |
+| 9       | Processing                   |
+| 10      | In Progress                  |
+
+### Status mapping for Check (id, employment etc) level Verification
+
+| Integer | Status                   |
+| ------- | ------------------------ |
+| 0       | In progress              |
+| 1       | Completed                |
+| 3       | Awaiting Input           |
+| 4       | Processing               |
+| 6       | Completed with exception |
+| 8       | Closed                   |
+| 9       | On Hold                  |
+| 10      | Cancelled                |
+| 11      | Consent missing          |
+| 12      | Insufficient funds       |
+
 > Example Response (with all possible fields)
 
 ```json
