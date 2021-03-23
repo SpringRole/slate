@@ -1759,6 +1759,65 @@ This API is used to get candidates in bulk. You can provide multiple candidates 
         "files": []
       }
     ],
+    "candidate_histories": [
+      {
+        "id": 4743,
+        "uuid": "a9b0a1e1-5a77-4e38-b6ca-c0e4f1b87333",
+        "candidate_id": 6300,
+        "address_id": 5722,
+        "comments": "No adverse records found.",
+        "completion_date": "2019-09-16",
+        "created_at": "2020-08-20T16:09:01.000Z",
+        "status": "verified",
+        "qc_check_log_id": "60599c34705e150011402c23",
+        "file_url": null,
+        "verify_ids": null,
+        "store_data": null,
+        "final_data": null,
+        "algo_type": 11,
+        "requested_at": "2019-09-09",
+        "added_to_report_at": "2020-08-20T12:51:22.000Z",
+        "ops_status_uuid": "N/A",
+        "is_file_migrated": 0,
+        "files": [
+          {
+            "id": 40360,
+            "uuid": "8f591a3b-821a-4abd-8554-28bc98ab9f83",
+            "related_uuid": "a9b0a1e1-5a77-4e38-b6ca-c0e4f1b87333",
+            "document_url": "https://springverify-assets-id.s3.amazonaws.com/Ashok-Sundarrao-Jogdand-1597920009053-6300-history-verify-0.pdf",
+            "is_default": 0,
+            "is_verified": 1,
+            "show_in_report": 1,
+            "relation_id": null,
+            "active": null
+          }
+        ]
+      }
+    ],
+    "candidates_creditchecks": [
+      {
+        "id": 79,
+        "uuid": "98f213a2-cdfa-4cbb-8028-655389e6351f",
+        "candidate_id": "4119a48d-b3f8-4e07-9dd9-d4414c70e01b",
+        "name": "Ashok Sundarrao Jogdand",
+        "pan_number": "BKMPA3164J",
+        "dob": "1995-03-05",
+        "address": "Sr. #-22/5/1, Lane #-1, Krantiveer Nagar, Near Sancheti School, Thergaon Road, Dange Chowk, Near Sancheti School, Tiger Gym Lane, , Pune, Maharashtra, 411035",
+        "credit_score": 8,
+        "loan_score": 720,
+        "status": 1,
+        "qc_check_log_id": "6059a04a7a4bba001182824b",
+        "comments": "test",
+        "requested_date": null,
+        "completed_date": "2021-03-23",
+        "created_at": "2021-03-23T07:43:39.000Z",
+        "files": [],
+        "insufficiencyTime": 0,
+        "onHold": 0,
+        "elapsedTime": 1,
+        "effectiveTATTime": 1
+      }
+    ],
     "candidates_employments": [
       {
         "id": 497,
